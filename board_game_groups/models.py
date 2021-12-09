@@ -8,6 +8,7 @@ class Gamer(models.Model):
   Name = CharField(max_length=100)
   
 class Loans(models.Model):
+  Borrower = models.ForeignKey(Gamer, on_delete=models.CASCADE,)
   Borrowed_Game = models.ForeignKey(Game, on_delete=models.CASCADE,)
   
   def __str__(self):
