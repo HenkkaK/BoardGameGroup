@@ -4,7 +4,7 @@ from django.db import models
 
 # Class for the players.
 class Gamer(models.Model):
-  Name = CharField(max_length=100)
+  Name = models.CharField(max_length=100)
   Owned_games = models.JSONField(default=list)
   
   def __str__(self):
