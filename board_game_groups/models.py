@@ -16,6 +16,8 @@ class Game(models.Model):
   Owner = models.CharField(max_length=30)
   Game_description = models.TextField()
   Latest_borrower =  models.ForeignKey(Gamer, on_delete=models.CASCADE,)
+  is_borrowed = models.BooleanField()
+  date_modified = models.DateTimeField(auto_now_add=True)
   
   
   def __str__(self):
