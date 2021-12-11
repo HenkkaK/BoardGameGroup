@@ -7,9 +7,9 @@ class Game(models.Model):
   name = models.CharField(max_length=300)
   owner = models.CharField(max_length=30)
   description = models.TextField()
+  is_borrowed = models.BooleanField(default=False)
   date_added = models.DateTimeField(auto_now_add=True)
   date_modified = models.DateTimeField(auto_now_add=True)
-  
   
   def __str__(self):
     return self.name
@@ -19,7 +19,6 @@ class Borrow(models.Model):
   game = models.ForeignKey(Game, on_delete=models.CASCADE)
   borrow_date = models.DateTimeField(auto_now_add=True)
   contact_information = models.CharField(max_length=100)
-  is_borrowed = models.BooleanField(default=False)
   planned_return_date = models.CharField(max_length=20)
   
   def __str__(self):
