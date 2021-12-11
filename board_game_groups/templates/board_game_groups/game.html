@@ -5,6 +5,9 @@
 <p>Game: {{ game }}</p>
 
 <p>Borrows:</p>
+<p>
+    <a href="{% url 'board_game_groups:new_borrow' game.id %}">Mark a new borrow</a>
+</p>
 <ul>
     {% for borrow in borrows %}
     <li>
