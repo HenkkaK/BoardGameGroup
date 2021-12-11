@@ -1,3 +1,4 @@
 bgg_env/
 pyvenv.cfg
 __pycache__/
+db.sqlite3

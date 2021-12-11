@@ -19,6 +19,7 @@ class Game(models.Model):
 class Borrow(models.Model):
   Borrowed_Game = models.ForeignKey(Game, on_delete=models.CASCADE)
   Borrow_date = models.DateTimeField(auto_now_add=True)
+  Contact_information = models.CharField(max_length=100)
   Planned_return_date = models.CharField(max_length=20)
   
   def __str__(self):
