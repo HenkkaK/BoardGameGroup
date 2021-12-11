@@ -8,4 +8,6 @@ urlpatterns = [
     path('games/', views.games, name='games'),
     # Detail page for a game
     path('games/<int:game_id>/', views.game, name='game'),
+    # Page for adding a game
+    path('new_game/', views.new_game, name='new_game'),
 ]
