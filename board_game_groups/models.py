@@ -18,8 +18,8 @@ class Game(models.Model):
  
   
  class Borrow(models.Model):
-  Borrowed_Game = models.ForeignKey(Game, on_delete=models.CASCADE,)
-  Borrow_date = models.DateTimeField(auto_now_add_True)
+  Borrowed_Game = models.ForeignKey(Game, on_delete=models.CASCADE)
+  Borrow_date = models.DateTimeField(auto_now_add=True)
   Planned_return_date = CharField(max_length=20)
   
   def __str__(self):
