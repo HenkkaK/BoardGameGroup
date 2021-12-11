@@ -14,11 +14,10 @@ class Game(models.Model):
   
   def __str__(self):
     return self.Game_name
-  
- 
-  
+
+
 class Borrow(models.Model):
-  Borrowed_Game = models.ForeignKey(Game, on_delete=models.CASCADE,)
+  Borrowed_Game = models.ForeignKey(Game, on_delete=models.CASCADE)
   Borrow_date = models.DateTimeField(auto_now_add=True)
   Planned_return_date = models.CharField(max_length=20)
   
