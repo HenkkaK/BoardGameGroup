@@ -13,6 +13,9 @@
     <li>
         <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
         <p>{{ entry.text|linebreaks }}</p>
+        <p>
+            <a href="{% url 'board_game_groups:edit_borrow' borrow.id %}">Edit Borrow</a>
+        </p>
     </li>
     {% empty %}
     <li>There are no borrows for this game yet.</li>

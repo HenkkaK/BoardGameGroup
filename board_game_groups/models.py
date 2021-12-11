@@ -4,26 +4,26 @@ from django.db import models
 
 # Class for the boardgames.
 class Game(models.Model):
-  Game_name = models.CharField(max_length=300)
-  Owner = models.CharField(max_length=30)
-  Game_description = models.TextField()
+  name = models.CharField(max_length=300)
+  owner = models.CharField(max_length=30)
+  description = models.TextField()
   is_borrowed = models.BooleanField()
   date_added = models.DateTimeField(auto_now_add=True)
   date_modified = models.DateTimeField(auto_now_add=True)
   
   
   def __str__(self):
-    return self.Game_name
+    return self.name
 
 
 class Borrow(models.Model):
-  Borrowed_Game = models.ForeignKey(Game, on_delete=models.CASCADE)
-  Borrow_date = models.DateTimeField(auto_now_add=True)
-  Contact_information = models.CharField(max_length=100)
-  Planned_return_date = models.CharField(max_length=20)
+  game = models.ForeignKey(Game, on_delete=models.CASCADE)
+  borrow_date = models.DateTimeField(auto_now_add=True)
+  contact_information = models.CharField(max_length=100)
+  planned_return_date = models.CharField(max_length=20)
   
   def __str__(self):
-    return self.Borrowed_Game
+    return self.contact_information
   
 """
 # Class for the players. (currently unused)
