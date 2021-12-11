@@ -6,7 +6,14 @@
 <ul>
   {% for game in games %}
   <li>
+    
     <a href="{% url 'board_game_groups:game' game.id %}">{{ game }}</a>
+    <p>{{ game.description|linebreaks }}</p>
+    {% if game.is_borrowed %}
+    <p>Game is borrowed.</p>
+    {% else %}
+    <p>Game is not borrowed.</p>
+    {% endif %}
   </li>
   {% empty %}
   <li>No games have been added yet.</li>
