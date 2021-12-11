@@ -1,0 +1,19 @@
+{% extends 'board_game_groups/base.html' %}
+
+{% block content %}
+
+<p>Game: {{ game }}</p>
+
+<p>Borrows:</p>
+<ul>
+    {% for borrow in borrows %}
+    <li>
+        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ entry.text|linebreaks }}</p>
+    </li>
+    {% empty %}
+    <li>There are no borrows for this game yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
