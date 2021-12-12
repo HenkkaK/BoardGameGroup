@@ -14,7 +14,7 @@ class Game(models.Model):
   def __str__(self):
     return self.name
 
-
+# class for borrows
 class Borrow(models.Model):
   game = models.ForeignKey(Game, on_delete=models.CASCADE)
   borrow_date = models.DateTimeField(auto_now_add=True)
