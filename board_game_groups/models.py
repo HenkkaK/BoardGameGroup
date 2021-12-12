@@ -1,11 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 # Class for the boardgames.
 class Game(models.Model):
   name = models.CharField(max_length=300)
-  owner = models.CharField(max_length=30)
+  owner = models.ForeignKey(User, on_delete=models.CASCADE)
   description = models.TextField()
   is_borrowed = models.BooleanField(default=False)
   date_added = models.DateTimeField(auto_now_add=True)

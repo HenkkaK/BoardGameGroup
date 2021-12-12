@@ -22,8 +22,8 @@ def new_game(request):
     else:
         form = GameForm(data=request.POST)
         if form.is_valid():
-            # new_game = form.save(commit=False)
-            # new_game.owner = request.user
+            new_game = form.save(commit=False)
+            new_game.owner = request.user
             form.save()
             return redirect('board_game_groups:games')
     context = {'form': form}

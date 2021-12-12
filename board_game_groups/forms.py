@@ -5,8 +5,8 @@ from .models import Game, Borrow
 class GameForm(forms.ModelForm):
     class Meta:
         model = Game
-        fields = ['name', 'owner', 'description', 'is_borrowed']
-        labels = {'name': 'Name of the game', 'owner': 'Owner of the game', 'description' : 'Description', 'is_borrowed' : 'Borrowed'}
+        fields = ['name', 'description', 'is_borrowed']
+        labels = {'name': 'Name of the game', 'description' : 'Description', 'is_borrowed' : 'Borrowed'}
 
 class BorrowForm(forms.ModelForm):
     class Meta:
