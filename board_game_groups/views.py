@@ -66,3 +66,18 @@ def edit_borrow(request, borrow_id):
     
     context = {'borrow': borrow, 'game': game, 'form': form}
     return render(request, 'board_game_groups/edit_borrow.html', context)
+
+@login_required
+def edit_game(request, game_id):
+    game = Game.objects.get(id=game_id)
+
+    if request.method != 'POST':
+        form = GameForm(instance=game)
+    else:
+        form = GameForm(instance=game, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('board_game_groups:game', game_id=game.id)
+    
+    context = {'game': game, 'form': form}
+    return render(request, 'board_game_groups/edit_game.html', context)

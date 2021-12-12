@@ -5,6 +5,7 @@
 <p>Game: {{ game }}</p>
 <p>Game owner: {{ game.owner }}</p>
 <p>Description: {{ game.description }}</p>
+<a href="{% url 'board_game_groups:edit_game' game.id %}">Edit Game</a>
 <p>Borrows:</p>
 <p>
     <a href="{% url 'board_game_groups:new_borrow' game.id %}">Mark a new borrow</a>

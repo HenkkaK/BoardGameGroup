@@ -14,4 +14,6 @@ urlpatterns = [
     path('new_borrow/<int:game_id>/', views.new_borrow, name='new_borrow'),
     # Page for editing a borrow
     path('edit_borrow/<int:borrow_id>/', views.edit_borrow, name='edit_borrow'),
+    # Page for editing a game
+    path('edit_game/<int:game_id>/', views.edit_game, name='edit_game'),
 ]
