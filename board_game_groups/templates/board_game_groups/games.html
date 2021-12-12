@@ -8,8 +8,6 @@
   <li>
     
     <a href="{% url 'board_game_groups:game' game.id %}">{{ game }}</a>
-    <p>Game owner: {{ game.owner }}</p>
-    <p>{{ game.description|linebreaks }}</p>
     {% if game.is_borrowed %}
     <p>Game is borrowed.</p>
     {% else %}
