@@ -20,10 +20,11 @@ class Borrow(models.Model):
   game = models.ForeignKey(Game, on_delete=models.CASCADE)
   borrow_date = models.DateTimeField(auto_now_add=True)
   borrower = models.ForeignKey(User, on_delete=models.CASCADE)
-  planned_return_date = models.CharField(max_length=20)
-  
-  def __str__(self):
-    return self.contact_information
+  planned_return_date = models.DateTimeField(auto_now_add=False)
+  is_borrowed = models.BooleanField(default=False)
+
+  def __bool__(self):
+    return self.is_borrowed
   
 """
 # Class for the players. (currently unused)

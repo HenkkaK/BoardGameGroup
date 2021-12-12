@@ -13,7 +13,8 @@
     {% for borrow in borrows %}
     <li>
         <p>Borrower: {{ borrow.borrower }}</p>
-        <p>{{ borrow.borrow_date|date:'M d, Y H:i' }}</p>
+        <p>Borrow date: {{ borrow.borrow_date|date:'M d, Y' }}</p>
+        <p>Planned return date: {{ borrow.planned_return_date|date:'M d, Y' }}</p>
         <p>
             <a href="{% url 'board_game_groups:edit_borrow' borrow.id %}">Edit Borrow</a>
         </p>

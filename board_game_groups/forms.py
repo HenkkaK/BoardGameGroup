@@ -15,3 +15,4 @@ class BorrowForm(forms.ModelForm):
     # täytyy keksiä mitä kenttiä tähän tulee
         fields = ['planned_return_date']
         labels = {'planned_return_date' : 'planned return date'}
+        widgets = {'planned_return_date' : forms.SelectDateWidget()}
