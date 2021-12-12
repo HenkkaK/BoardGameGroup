@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 from .models import Game, Borrow
 from .forms import GameForm, BorrowForm
 
@@ -70,6 +71,8 @@ def edit_borrow(request, borrow_id):
 @login_required
 def edit_game(request, game_id):
     game = Game.objects.get(id=game_id)
+    if game.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         form = GameForm(instance=game)
