@@ -39,9 +39,9 @@ def new_borrow(request, game_id):
         if form.is_valid():
             new_borrow = form.save(commit=False)
             new_borrow.game = game
+            new_borrow.borrower = request.user
             new_borrow.save()
             return redirect('board_game_groups:game', game_id=game_id)
-            # game_id=game_id??
 
     context = {'game': game, 'form': form}
     return render(request, 'board_game_groups/new_borrow.html', context)

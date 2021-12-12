@@ -13,5 +13,5 @@ class BorrowForm(forms.ModelForm):
         model = Borrow
 
     # täytyy keksiä mitä kenttiä tähän tulee
-        fields = ['contact_information', 'planned_return_date']
-        labels = {'contact_information' : 'Contact information', 'planned_return_date' : 'planned return date'}
+        fields = ['planned_return_date']
+        labels = {'planned_return_date' : 'planned return date'}
