@@ -1,21 +1,25 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Game, Borrow
 from .forms import GameForm, BorrowForm
 
 def index(request):
     return render(request, 'board_game_groups/index.html')
 
+@login_required
 def games(request):
     games = Game.objects.order_by('date_added')
     context = {'games': games}
     return render(request, 'board_game_groups/games.html', context)
 
+@login_required
 def game(request, game_id):
     game = Game.objects.get(id=game_id)
     borrows = game.borrow_set.order_by('-borrow_date')
     context = {'game': game, 'borrows': borrows}
     return render(request, 'board_game_groups/game.html', context)
 
+@login_required
 def new_game(request):
     if request.method != 'POST':
         form = GameForm()
@@ -29,6 +33,7 @@ def new_game(request):
     context = {'form': form}
     return render(request, 'board_game_groups/new_game.html', context)
 
+@login_required
 def new_borrow(request, game_id):
     game = Game.objects.get(id=game_id)
 
@@ -46,6 +51,7 @@ def new_borrow(request, game_id):
     context = {'game': game, 'form': form}
     return render(request, 'board_game_groups/new_borrow.html', context)
 
+@login_required
 def edit_borrow(request, borrow_id):
     borrow = Borrow.objects.get(id=borrow_id)
     game = borrow.game
